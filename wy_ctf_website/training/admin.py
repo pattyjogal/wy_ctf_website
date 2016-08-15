@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Challenge
+from .models import Challenge, ChallengeAdmin
+
 # Register your models here.
 
-admin.register(Challenge)
+admin.site.register(Challenge, ChallengeAdmin)

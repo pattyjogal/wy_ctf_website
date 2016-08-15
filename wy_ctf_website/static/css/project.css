@@ -36,3 +36,14 @@
 [hidden][style="display: block;"] {
   display: block !important;
 }
+
+.category-row {
+  float: left;
+  width: 14.285714285%;
+}
+
+.center{
+  display:flex;
+  justify-content:center;
+  align-items:center
+}

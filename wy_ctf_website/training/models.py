@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib import admin
+from django import forms
+
+
 
 # Create your models here.
 
@@ -39,3 +43,13 @@ class Challenge(models.Model):
     )
     key_hash = models.CharField(max_length=32)
 
+class ChallengeAdmin(admin.ModelAdmin):
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(ChallengeAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'description':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+        return formfield
+
+    class Meta():
+        fields = '__all__'
