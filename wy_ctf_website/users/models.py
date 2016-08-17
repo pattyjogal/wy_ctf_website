@@ -15,6 +15,14 @@ class User(AbstractUser):
     # around the globe.
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
 
+    crypto_score = models.IntegerField(default=0)
+    algo_score = models.IntegerField(default=0)
+    forensic_score = models.IntegerField(default=0)
+    pwn_score = models.IntegerField(default=0)
+    rev_eng_score = models.IntegerField(default=0)
+    web_score = models.IntegerField(default=0)
+    linux_score = models.IntegerField(default=0)
+
     def __str__(self):
         return self.username
 

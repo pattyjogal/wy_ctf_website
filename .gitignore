@@ -71,3 +71,4 @@ wy_ctf_website/media/
 # Hitch directory
 tests/.hitch
 
+.env
