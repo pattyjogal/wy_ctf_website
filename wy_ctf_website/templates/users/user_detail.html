@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{ object.username }}</h2>
+      <h2>Welcome, {{ object.username }}</h2>
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}
@@ -19,17 +19,52 @@
 {% if object == request.user %}
 <!-- Action buttons -->
 <div class="row">
-
   <div class="col-sm-12 ">
     <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
     <!-- Your Stuff: Custom user template urls -->
-
+    <style>
+          p{
+            color: #9E9E9E;
+            text-transform: uppercase;
+            padding: 0;
+          }
+      .card{
+        padding: 10px;
+      }
+    </style>
+    <h2></h2>
     <div class="card">
-        <div id="crypto"></div>
-        <div id="forensics"></div>
-        <div id="algo"></div>
+      <p>Crypto</p>
+      <div id="crypto"></div>
+      </div>
+    <div class="card">
+      <p>Forensics</p>
+      <div id="forensics"></div>
     </div>
+    <div class="card">
+      <p>Algorithm</p>
+      <div id="algo"></div>
+    </div>
+    <div class="card">
+      <p>Linux</p>
+      <div id="linux"></div>
+    </div>
+    <div class="card">
+      <p>Web</p>
+      <div id="web"></div>
+    </div>
+    <div class="card">
+      <p>Reverse Engineering</p>
+      <div id="rev-eng"></div>
+    </div>
+    <div class="card">
+      <p>Pwning</p>
+      <div id="pwn"></div>
+    </div>
+
+
+
   </div>
 </div>
 <!-- End Action buttons -->
@@ -57,6 +92,12 @@
     }
     createBar('crypto','#1976D2', {{ user_crypto }} / {{ crypto_total }});
     createBar('forensics', '#673AB7', {{ user_forensics }} / {{ forensics_total }});
+    createBar('algo', '#2E7D32', {{ user_algo }} / {{ algo_total }});
+    createBar('linux', '#FFEB3B', {{ user_linux }} / {{ linux_total }});
+    createBar('web', '#4DD0E1', {{ user_web }} / {{ web_total }});
+    createBar('rev-eng', '#c62828', {{ user_rev_eng }} / {{ rev_eng_total }});
+    createBar('pwn', '#FF5722', {{ user_pwn }} / {{ pwn_total }});
+
 
     </script>
 {% endblock %}

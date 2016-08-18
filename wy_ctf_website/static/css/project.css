@@ -47,3 +47,27 @@
   justify-content:center;
   align-items:center
 }
+
+.forensics-color{
+  color: #5E35B1;
+}
+
+.linux-color{
+  color: #2E7D32
+}
+
+.algo-color{
+  color: #FFEB3B
+}
+
+.web-color{
+  color: #4DD0E1;
+}
+
+.rev-eng-color{
+  color: #c62828
+}
+
+.pwn-color{
+  color: #FF5722
+}
