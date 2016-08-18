@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            {{ object.name }}
+        </div>
+        <div class="card-block">
+            <div class="card-text">
+                {{ object.description }}
+            </div>
+            <form action="{% url 'training:challenge' object.pk %}" method="post">
+                {% csrf_token %}
+                <input type="text" class="form-control form-control-lg" name="answer" placeholder="Your answer">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

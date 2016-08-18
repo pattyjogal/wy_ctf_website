@@ -35,7 +35,7 @@ class Challenge(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=10000)
-    attachments = models.FileField()
+    attachments = models.FileField(blank=True, null=True)
     points = models.IntegerField()
     category = models.CharField(
         max_length=2,
@@ -53,3 +53,10 @@ class ChallengeAdmin(admin.ModelAdmin):
 
     class Meta():
         fields = '__all__'
+
+class Score(models.Model):
+    value = models.IntegerField(default=0)
+    category = models.CharField(
+        max_length=2,
+        choices=Challenge.CHALLENGE_CATEGORIES
+    )

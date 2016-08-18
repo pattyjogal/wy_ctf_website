@@ -7,6 +7,8 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
+from wy_ctf_website.training.models import Challenge, Score
+
 
 @python_2_unicode_compatible
 class User(AbstractUser):
@@ -15,13 +17,9 @@ class User(AbstractUser):
     # around the globe.
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
 
-    crypto_score = models.IntegerField(default=0)
-    algo_score = models.IntegerField(default=0)
-    forensic_score = models.IntegerField(default=0)
-    pwn_score = models.IntegerField(default=0)
-    rev_eng_score = models.IntegerField(default=0)
-    web_score = models.IntegerField(default=0)
-    linux_score = models.IntegerField(default=0)
+    score = models.ManyToManyField(Score)
+
+    completed_challenges = models.ManyToManyField(Challenge)
 
     def __str__(self):
         return self.username

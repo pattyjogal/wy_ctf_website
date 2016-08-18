@@ -9,8 +9,10 @@
     {% if user.is_authenticated %}
       <div class="row">
         <div class="col-md-3">
-          <i class="mdi mdi-lock-open mdi-48px center"></i>
-          <h4 class="center">Cryptography</h4>
+            <a href="{% url 'training:challenge-list' category='CR'%}">
+             <i class="mdi mdi-lock-open mdi-48px center"></i>
+            </a>
+            <h4 class="center">Cryptography</h4>
         </div>
         <div class="col-md-3">
           <i class="mdi mdi-file-find mdi-48px center"></i>

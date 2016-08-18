@@ -55,8 +55,8 @@
 
         bar.animate(value);  // Number from 0.0 to 1.0
     }
-    createBar('crypto','#1976D2', .8);
-    createBar('forensics', '#673AB7', .6);
+    createBar('crypto','#1976D2', {{ user_crypto }} / {{ crypto_total }});
+    createBar('forensics', '#673AB7', {{ user_forensics }} / {{ forensics_total }});
 
     </script>
 {% endblock %}
