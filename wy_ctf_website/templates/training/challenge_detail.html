@@ -9,7 +9,7 @@
         <div class="card-block">
             <div class="card-text">
                 {{ object.description }}
-                <a href="{{ object.attachments }}" class="btn btn-info">Download attachments</a>
+                <a href="/uploads/{{ object.attachments }}" class="btn btn-info">Download attachments</a>
             </div>
             <form class="form-group" action="{% url 'training:challenge' object.pk %}" method="post">
                 {% csrf_token %}

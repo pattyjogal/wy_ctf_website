@@ -35,7 +35,7 @@ class Challenge(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=10000)
-    attachments = models.FileField(blank=True, null=True)
+    attachments = models.FileField(blank=True, null=True, upload_to='uploads/')
     points = models.IntegerField()
     category = models.CharField(
         max_length=2,
