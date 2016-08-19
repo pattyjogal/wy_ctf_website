@@ -12,6 +12,9 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Welcome to the training center for WYCTF</h1>
+      <p>In the 2016-2017 school year, we at WYCTF wish to set a precedent of awesome CTF teams for futer students
+      to look up to. We want to keep this team well trained, of course, so we created a tool that will help you get
+      the practice you need all while keeping track of your progress!</p>
     </div>
 
     {% if user.is_authenticated %}
@@ -29,13 +32,13 @@
           <h4 class="center">Forensics</h4>
         </div>
         <div class="col-md-3">
-          <a class="linux-color" href="{% url 'training:challenge-list' category='FR'%}">
+          <a class="linux-color" href="{% url 'training:challenge-list' category='LX'%}">
             <i class="mdi mdi-linux mdi-48px center"></i>
           </a>
           <h4 class="center">Linux</h4>
         </div>
         <div class="col-md-3">
-          <a class="algo-color" href="{% url 'training:challenge-list' category='FR'%}">
+          <a class="algo-color" href="{% url 'training:challenge-list' category='AL'%}">
             <i class="mdi mdi-calculator mdi-48px center"></i>
           </a>
           <h4 class="center">Algorithms</h4>
@@ -44,19 +47,19 @@
       <br>
       <div class="row">
         <div class="col-md-4">
-          <a class="web-color" href="{% url 'training:challenge-list' category='FR'%}">
+          <a class="web-color" href="{% url 'training:challenge-list' category='WB'%}">
             <i class="mdi mdi-web mdi-48px center"></i>
           </a>
           <h4 class="center">Web</h4>
         </div>
         <div class="col-md-4">
-          <a class="rev-eng-color" href="{% url 'training:challenge-list' category='FR'%}">
+          <a class="rev-eng-color" href="{% url 'training:challenge-list' category='RE'%}">
             <i class="mdi mdi-wrench mdi-48px center"></i>
           </a>
           <h4 class="center">Reverse Eng.</h4>
         </div>
         <div class="col-md-4">
-          <a class="pwn-color" href="{% url 'training:challenge-list' category='FR'%}">
+          <a class="pwn-color" href="{% url 'training:challenge-list' category='PW'%}">
             <i class="mdi mdi-memory mdi-48px center"></i>
           </a>
           <h4 class="center">Pwning</h4>
