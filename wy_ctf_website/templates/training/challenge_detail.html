@@ -9,11 +9,12 @@
         <div class="card-block">
             <div class="card-text">
                 {{ object.description }}
+                <a href="{{ object.attachments }}" class="btn btn-info">Download attachments</a>
             </div>
-            <form action="{% url 'training:challenge' object.pk %}" method="post">
+            <form class="form-group" action="{% url 'training:challenge' object.pk %}" method="post">
                 {% csrf_token %}
                 <input type="text" class="form-control form-control-lg" name="answer" placeholder="Your answer">
-                <input type="submit">
+                <input type="submit" class="btn btn-primary">
             </form>
         </div>
     </div>
