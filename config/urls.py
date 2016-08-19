@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
     # Django Admin, use {% url 'admin:index' %}
-    url(r'^admin/$', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
     # User management
     url(r'^users/', include('wy_ctf_website.users.urls', namespace='users')),
