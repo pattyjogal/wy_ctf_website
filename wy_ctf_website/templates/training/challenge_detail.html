@@ -18,7 +18,7 @@
     </div>
     <div class="card-block">
       <div class="card-text">
-        {{ object.description }}
+        {{ object.description|safe }}
         {% if object.attachments %}
           <a href="{{ object.attachments.url }}" class="btn btn-info">Download attachment</a>
         {% endif %}
