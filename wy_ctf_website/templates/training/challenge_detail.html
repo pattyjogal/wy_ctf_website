@@ -2,24 +2,33 @@
 
 {% block content %}
 
-    <div class="card">
-        <div class="card-header">
-            {{ object.name }}
-            <strong style="float: right;">{{ object.points }} points</strong>
-          </div>
-        </div>
-        <div class="card-block">
-            <div class="card-text">
-                {{ object.description }}
-                {% if object.attachments %}
-                <a href="{{ object.attachments.url }}" class="btn btn-info">Download attachment</a>
-                {% endif %}
-            </div>
-            <form class="form-group" action="{% url 'training:challenge' object.pk %}" method="post">
-                {% csrf_token %}
-                <input type="text" class="form-control form-control-lg" name="answer" placeholder="Your answer">
-                <input type="submit" class="btn btn-primary">
-            </form>
-        </div>
+  <style scoped>
+    input{
+      margin-top: 10px;
+    }
+    .card-text{
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <div class="card">
+    <div class="card-header">
+      {{ object.name }}
+      <strong style="float: right;">{{ object.points }} points</strong>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        {{ object.description }}
+        {% if object.attachments %}
+          <a href="{{ object.attachments.url }}" class="btn btn-info">Download attachment</a>
+        {% endif %}
+      </div>
+      <form class="form-group" action="{% url 'training:challenge' object.pk %}" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control form-control-lg" name="answer" placeholder="Your answer">
+        <input type="submit" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
 
 {% endblock %}
