@@ -14,5 +14,6 @@ urlpatterns = [
         regex=r'challenge/(?P<pk>[0-9])',
         view=views.ChallengeView.as_view(),
         name='challenge'
-    )
+    ),
+
 ]

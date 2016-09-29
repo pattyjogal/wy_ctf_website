@@ -20,7 +20,9 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^training/', include('wy_ctf_website.training.urls', namespace='training'))
+    url(r'^training/', include('wy_ctf_website.training.urls', namespace='training')),
+
+    url(r'^docmo/', TemplateView.as_view(template_name='training/docmo.html'), name='docmo')
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
