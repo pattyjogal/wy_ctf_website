@@ -45,7 +45,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
     def user_score(self, category):
         points_total = 0
-        for score in self.request.user.score.filter(category=category):
+        for score in self.get_object().score.filter(category=category):
             points_total += score.value
         return points_total
 
