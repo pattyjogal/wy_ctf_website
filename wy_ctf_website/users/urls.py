@@ -33,4 +33,11 @@ urlpatterns = [
         view=views.UserUpdateView.as_view(),
         name='update'
     ),
+
+    #URL pattern for the UserAdminCP
+    url(
+        regex=r'^~cp/$',
+        view=views.UserAdminCP.as_view(),
+        name='cp'
+    ),
 ]

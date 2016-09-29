@@ -16,7 +16,7 @@
     </div>
   </div>
 
-{% if object == request.user %}
+{% if object == request.user or request.user.is_superuser %}
 <!-- Action buttons -->
 <div class="row">
   <div class="col-sm-12 ">

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+<ul>
+  {% for user in user_list %}
+    <li>{{ user.name }} {{ user.score.value }}</li>
+  {% empty %}
+    <li>Lol we have no users...</li>
+  {% endfor %}
+</ul>

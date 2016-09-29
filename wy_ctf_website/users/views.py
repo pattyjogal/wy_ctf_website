@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
+from django.contrib.auth.decorators import user_passes_test
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
@@ -44,13 +45,16 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
     def user_score(self, category):
         points_total = 0
-        for score in self.request.user.score.filter(category=category):
+        for score in self.get_object().score.filter(category=category):
             points_total += score.value
         return points_total
 
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+
+
 
 
 class UserRedirectView(LoginRequiredMixin, RedirectView):
@@ -83,3 +87,11 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+class UserAdminCP(ListView):
+    model = User
+    template_name = 'users/user_admin_dashboard.html'
+
+    @user_passes_test(lambda u: u.is_superuser)
+    def dispatch(self, request, *args, **kwargs):
+        return super(UserAdminCP, self).dispatch(*args, **kwargs)
