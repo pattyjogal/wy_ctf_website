@@ -50,4 +50,3 @@ class ChallengeView(DetailView):
                 messages.add_message(request, messages.ERROR, "Nope, not quite correct. Try again!")
                 con = self.get_context_data(object=self.get_object())
                 return render(request, self.template_name, con)
-
