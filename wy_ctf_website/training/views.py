@@ -36,6 +36,7 @@ class ChallengeView(DetailView):
             request.user.score.add(score)
             messages.add_message(request, messages.SUCCESS, "You earned %i points!" % score.value)
             con = self.get_context_data(object=self.get_object())
+            self.get_object().solves += 1
             return render(request, self.template_name, con)
         else:
             points_total = 0
