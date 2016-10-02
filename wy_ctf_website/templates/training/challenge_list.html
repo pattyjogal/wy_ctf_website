@@ -10,9 +10,10 @@
     {% for challenge in object_list %}
         <li class="list-group-item" onclick="location.href='{% url 'training:challenge' challenge.pk %}';">
             {{ challenge.name }}
+        <strong style="float:right">{{ challenge.solves }} solves</strong>
         </li>
     {% empty %}
-        <h1>Either there was an error, or we have no challenges!</h1>
+        <h1>No challenges for this category!</h1>
     {% endfor %}
     </ul>
 
