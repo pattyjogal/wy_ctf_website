@@ -6,6 +6,11 @@ from django import forms
 
 # Create your models here.
 
+class Solution(models.Model):
+    hash = models.CharField(max_length=32)
+
+    def __str__(self):
+        return str(self.hash)
 
 class Challenge(models.Model):
     """
@@ -41,7 +46,13 @@ class Challenge(models.Model):
         max_length=2,
         choices=CHALLENGE_CATEGORIES
     )
-    key_hash = models.CharField(max_length=32)
+    key_hashes = models.ManyToManyField(Solution)
+    solves = models.IntegerField(default=0)
+
+    def __str__(self):
+        return (str(self.name))
+
+
 
 class ChallengeAdmin(admin.ModelAdmin):
 
@@ -50,6 +61,8 @@ class ChallengeAdmin(admin.ModelAdmin):
         if db_field.name == 'description':
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield
+
+    filter_horizontal = ['key_hashes',]
 
     class Meta():
         fields = '__all__'
@@ -60,3 +73,4 @@ class Score(models.Model):
         max_length=2,
         choices=Challenge.CHALLENGE_CATEGORIES
     )
+
