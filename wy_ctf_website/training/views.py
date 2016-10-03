@@ -9,6 +9,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.template import Context
+from django.template import Library
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
 
@@ -20,6 +21,7 @@ import hashlib
 class ChallengeListView(ListView):
     model = Challenge
     def get_queryset(self):
+
         print(self.kwargs['category'])
         print(Challenge.objects.filter(category=self.kwargs['category']))
         return Challenge.objects.filter(category=self.kwargs['category'])
