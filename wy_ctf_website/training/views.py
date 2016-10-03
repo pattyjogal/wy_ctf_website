@@ -1,3 +1,4 @@
+import requests
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 
@@ -6,6 +7,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.template import Context
+from django.utils import timezone
 from django.views.generic import DetailView, ListView
 
 
@@ -38,6 +40,16 @@ class ChallengeView(DetailView):
             con = self.get_context_data(object=self.get_object())
             self.object.solves += 1
             self.object.save()
+            # Send me a text!
+            message = request.user.name \
+                      + " just solved " \
+                      + self.object.name + " "
+            requests.post('https://api.catapult.inetwork.com/v1/users/u-ei7ot5ydy5csq772zod4saq/messages',
+                          data={
+                              'from': '+12242129333',
+                              'to': '+13124935743',
+                              'text': message + str(timezone.now())
+                          })
             return render(request, self.template_name, con)
         else:
             points_total = 0
