@@ -43,7 +43,7 @@ class ChallengeView(DetailView):
             self.object.solves += 1
             self.object.save()
             # Send me a text!
-            message = request.user.name \
+            message = request.user.username \
                       + " just solved " \
                       + self.object.name + " "
             requests.post('https://api.catapult.inetwork.com/v1/users/u-ei7ot5ydy5csq772zod4saq/messages',
