@@ -1,3 +1,5 @@
+import json
+
 import requests
 from django.core.urlresolvers import reverse
 from django.contrib import messages
@@ -10,7 +12,7 @@ from django.template import Context
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
 
-
+from config.settings.common import env
 from wy_ctf_website.training.models import Challenge, Score
 
 import hashlib
@@ -45,11 +47,13 @@ class ChallengeView(DetailView):
                       + " just solved " \
                       + self.object.name + " "
             requests.post('https://api.catapult.inetwork.com/v1/users/u-ei7ot5ydy5csq772zod4saq/messages',
-                          data={
+                          data=json.dumps({
                               'from': '+12242129333',
                               'to': '+13124935743',
-                              'text': message + str(timezone.now())
-                          })
+                              'text': message
+                          }),
+                          auth=(env('BANDWIDTH_TOKEN'), env('BANDWIDTH_SECRET')),
+                          headers={'content-type': 'application/json'})
             return render(request, self.template_name, con)
         else:
             points_total = 0
