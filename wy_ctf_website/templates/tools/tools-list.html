@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+    li{
+        cursor: pointer;
+    }
+    </style>
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Platform</th>
+          <th>Documentation</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for tool in object_list %}
+        <tr>
+          <td>{{ tool.name }}</td>
+          <td>{{ tool.author }}</td>
+          <td>{{ tool.category }}</td>
+          <td>{% for platform in tool.platform.all %}
+                <i class="{{ platform.icon }}"></i>
+            {% endfor %}
+            </td>
+          <td>{{ tool.documentation }}</td>
+          <td>{{ tool.program }}</td>
+        </tr>
+      {% empty %}
+          <h1>No challenges for this category!</h1>
+      {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

@@ -45,3 +45,5 @@ redis>=2.10.0
 # Your custom requirements go here
 django-dotenv
 django-storages
+
+pyyaml

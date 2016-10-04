@@ -1,0 +1,15 @@
+- model: tools.platform
+  pk: 1
+  fields:
+    name: Windows
+    icon: fa fa-windows
+- model: tools.platform
+  pk: 2
+  fields:
+    name: Mac
+    icon: fa fa-apple
+- model: tools.platform
+  pk: 3
+  fields:
+    name: Linux
+    icon: fa fa-linux
