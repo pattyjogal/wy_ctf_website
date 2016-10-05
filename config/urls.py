@@ -23,8 +23,10 @@ urlpatterns = [
     url(r'^training/', include('wy_ctf_website.training.urls', namespace='training')),
     url(r'^tools/', include('wy_ctf_website.tools.urls', namespace='tools')),
 
-    url(r'^docmo/', TemplateView.as_view(template_name='training/docmo.html'), name='docmo')
+    url(r'^docmo/', TemplateView.as_view(template_name='training/docmo.html'), name='docmo'),
 
+    # OK SO I'M BEING A BAD BOY AND RUNNING MY LATEX BOT OFF OF THE SERVER SUE ME
+    url(r'^latex/', include('wy_ctf_website.latex.urls', namespace='latex'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
