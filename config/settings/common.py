@@ -47,7 +47,8 @@ LOCAL_APPS = (
     'wy_ctf_website.users.apps.UsersConfig',
     # Your stuff: custom apps go here
     'wy_ctf_website.training',
-    'wy_ctf_website.tools'
+    'wy_ctf_website.tools',
+    'wy_ctf_website.latex'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
