@@ -48,6 +48,7 @@ class Challenge(models.Model):
     )
     key_hashes = models.ManyToManyField(Solution)
     solves = models.IntegerField(default=0)
+    lesson = models.BooleanField(default=False)
 
     def __str__(self):
         return (str(self.name))

@@ -9,7 +9,10 @@
     <ul class="list-group">
     {% for challenge in object_list %}
         <li class="list-group-item" onclick="location.href='{% url 'training:challenge' challenge.pk %}';">
-            {{ challenge.name }}
+            {% if challenge.lesson %}
+              <span class="tag tag-info">Lesson</span>
+            {% endif %}
+          {{ challenge.name }}
         <strong style="float:right">{{ challenge.solves }} solves</strong>
         </li>
     {% empty %}
