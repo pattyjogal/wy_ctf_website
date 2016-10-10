@@ -13,6 +13,7 @@ from django.template import Library
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
 from django.views.generic import FormView
+from django.views.generic import TemplateView
 
 from config.settings import common
 from config.settings.common import env
@@ -21,17 +22,20 @@ from wy_ctf_website.training.models import Challenge, Score
 
 import hashlib
 
+
 class ChallengeListView(ListView):
     model = Challenge
-    def get_queryset(self):
 
+    def get_queryset(self):
         print(self.kwargs['category'])
         print(Challenge.objects.filter(category=self.kwargs['category']))
         return Challenge.objects.filter(category=self.kwargs['category'])
 
+
 class ChallengeView(DetailView):
     model = Challenge
     template_name = 'training/challenge_detail.html'
+
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         # Let's reward the user if they got it right!
@@ -72,6 +76,7 @@ class ChallengeView(DetailView):
                 messages.add_message(request, messages.ERROR, "Nope, not quite correct. Try again!")
                 con = self.get_context_data(object=self.get_object())
                 return render(request, self.template_name, con)
+
     def hash_validator(self, user_response):
         challenge_object_hashes = self.get_object().key_hashes.all()
         for sol in challenge_object_hashes:
@@ -79,27 +84,7 @@ class ChallengeView(DetailView):
                 return True
         return False
 
-class TerminalRegistration(FormView):
+
+class TerminalRegistration(TemplateView):
     template_name = 'training/terminal-register.html'
-    form_class = TerminalRegistrationForm
-    success_url = '/'
 
-    def form_valid(self, form):
-        from subprocess import call
-        import paramiko
-
-        call('echo "' + common.EC2_AUTH + '" > ctf_shell.pem')
-
-        ssh = paramiko.SSHClient()
-
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-
-        ssh.connect('ec2-54-70-189-235.us-west-2.compute.amazonaws.com',
-                    username='ubuntu',
-                     key_filename='ctf_shell.pem')
-
-        stdin, stdout, stderr = ssh.exec_command('ls')
-
-        ssh.close()
-
-        return HttpResponse(stdout.readlines())

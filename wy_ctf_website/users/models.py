@@ -21,6 +21,9 @@ class User(AbstractUser):
 
     completed_challenges = models.ManyToManyField(Challenge)
 
+    terminal_password = models.CharField(max_length=100, blank=True)
+
+
     def __str__(self):
         return self.username
 
