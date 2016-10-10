@@ -240,3 +240,5 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 MESSENGER_VALIDATION_TOKEN = env('MESSENGER_VALIDATION_TOKEN')
+
+EC2_AUTH = env('EC2_PRIVATE_KEY')

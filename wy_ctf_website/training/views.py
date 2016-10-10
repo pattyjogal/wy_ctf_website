@@ -12,8 +12,11 @@ from django.template import Context
 from django.template import Library
 from django.utils import timezone
 from django.views.generic import DetailView, ListView
+from django.views.generic import FormView
 
+from config.settings import common
 from config.settings.common import env
+from wy_ctf_website.training.forms import TerminalRegistrationForm
 from wy_ctf_website.training.models import Challenge, Score
 
 import hashlib
@@ -76,3 +79,27 @@ class ChallengeView(DetailView):
                 return True
         return False
 
+class TerminalRegistration(FormView):
+    template_name = 'training/terminal-register.html'
+    form_class = TerminalRegistrationForm
+    success_url = '/'
+
+    def form_valid(self, form):
+        from subprocess import call
+        import paramiko
+
+        call('echo "' + common.EC2_AUTH + '" > ctf_shell.pem')
+
+        ssh = paramiko.SSHClient()
+
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+        ssh.connect('ec2-54-70-189-235.us-west-2.compute.amazonaws.com',
+                    username='ubuntu',
+                     key_filename='ctf_shell.pem')
+
+        stdin, stdout, stderr = ssh.exec_command('ls')
+
+        ssh.close()
+
+        return HttpResponse(stdout.readlines())

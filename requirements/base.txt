@@ -47,3 +47,5 @@ django-dotenv
 django-storages
 
 pyyaml
+
+paramiko

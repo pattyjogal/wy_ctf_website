@@ -15,5 +15,9 @@ urlpatterns = [
         view=views.ChallengeView.as_view(),
         name='challenge'
     ),
-
+    url(
+        regex=r'terminal-registration',
+        view=views.TerminalRegistration.as_view(),
+        name='terminal-registration'
+    )
 ]
