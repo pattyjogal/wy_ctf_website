@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from wy_ctf_website.training import views
 
@@ -19,5 +19,10 @@ urlpatterns = [
         regex=r'terminal',
         view=views.TerminalRegistration.as_view(),
         name='terminal'
+    ),
+    url(
+        r'web/',
+        include('wy_ctf_website.training.web_urls', namespace='web')
+
     )
 ]

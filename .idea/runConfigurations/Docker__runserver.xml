@@ -3,13 +3,15 @@
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
       <env name="POSTGRES_USER" value="postgres" />
       <env name="DJANGO_SETTINGS_MODULE" value="config.settings.local" />
       <env name="MESSENGER_VALIDATION_TOKEN" value="" />
-      <env name="PYTHONUNBUFFERED" value="1" />
+      <env name="INSPECT_PASSWORD" value="s00per_dUp3r_s3curE_p@sswOrD" />
       <env name="DATABSE_URL" value="postgres:///wy_ctf_website" />
       <env name="EC2_PRIVATE_KEY" value="-----BEGIN RSA PRIVATE KEY-----&#10;MIIEowIBAAKCAQEAgF9mBBciuE52jB9r7kdXryQ5AiueHeYZhICZ0z1tJUBflvMKDeEEKgUni/PB&#10;/TItyzkS5P398L2twhL2nMmkmIWwYUe8YNXRHbiAfq3xby6rN0uVCgu/XsoGwwcPLrTvp7l1/9RH&#10;YJK6TvBfi86N8HVqeuDVfxI9dINYaE4zWszS7cRfHC8iOYTf9sO8Y/pdD6aEzcE8NhdXSH6rVbme&#10;7ta27FW/9zjYFq+m8GI3/u1+I5sfYoBs316+12j7IHBsfxFigtxt4ABLb63Q0Bh76Q1xXXUF9Nro&#10;T2LTcMifX0URIf+46ml7fReAhGKX0KN6Z/xmw9JSJnO6dJ2iROiLSQIDAQABAoIBACsRVmV66ZAR&#10;6t250PkBAF7m9SVQQtzfDKKSjoj7K7n6rdcztKTRYBdE4W6nmeZ7RjfO7xLaT67LxBa/S/NwBwOQ&#10;nosUiROnyF+DPcDCVKSrcI+9kMPtCwgfGUOnA6X02A5aP0dUDZpNv6mqJTP/WUlZ6x5MffQCx5Fm&#10;W2urCLmmUGpzSujCTBl++uNkfICWseFa6hIaG513quNNUCqMORsKcdHJvj8scVg0+yBd49avQSLj&#10;mg6KC+stCRf3jNIqpVCryC2VaiWolvHrat4XUamU0vSZU+vkaI4RdqfBO6KMuG3GtCSwXp3VkpcO&#10;abIyOtj50Q2UDqh0pxhc6huotL0CgYEA2MwWh13Hsd3+gLPO8QV3u1WDScK0+eKxCzwcN1FlXv5n&#10;DhYQyCm/MM/ixQdGJeCU0dQEBeAg5HeGx6e4ezLc8Cpi5YQVYNw6b4wEruqdwrBfC6KMzGvYisTK&#10;h1hZ1YOX1v51EwCzEQyEHb+FRbsH+trkRGLWOj3cGxgHaaAzbgcCgYEAl5X8oN5ZyHPkrYvfndfd&#10;kliF5vSY/og4wZZX0UTu1FpBVSp6etwmOTqMPzcqb6dW9q+vWmg1qIzPuwyE9NpQENA6F67f7Id7&#10;/LeiIyXgQWbmNXbEf0mMun7Yvu4iWJhc6YncYnWExu5p6FszumCjKLOpHZm7jVkV7wNOaXH36C8C&#10;gYBCa+zvFlVrcldaOTzK7WDsnVt3CteFw+V4SrdeX2rOeuU6FJqZqOix3M9ejEb6rd8KlomQ/0U0&#10;mkZJ/2HvJPs5/dKE/T3Lik3BBUYeDTW+g2jrWKcIrnYOthJS+0eyufmYXieiZdF3BL2pm5cKcS4V&#10;tmC/bwSxnWhFSMxkmTeImwKBgBhBAVjj+s2d7XrvJGpm/abKzzHy9P/U3+/plEeBlg0YG9f6ofpC&#10;e0Mw4PvEYd/XkIyL86yte9hqH1q4WBWtUJ5AEutzKZT44JfA8gpZpxYP1sm7JRmQtRmp7hgulgRC&#10;7KrZSg/e6c3Cm+N3pEEv8Ss0A90emem11VKW3tb0S0w1AoGBAMfPD6RpEhRB3W/dH9iDlbpUdZHX&#10;tcjJo8eABHOqte0bSyjOjoBtTcdyUpwz+72/AYV6jlHye4uTloBfP/kxPSnp/99DE9h34k0p3KON&#10;5/+seWm1tjGY55RZLZBKmCRY+6Rd1MwXm8cVhHRgtlAAlHzekQ81vmMChS+IA3ve6KUB&#10;-----END RSA PRIVATE KEY-----" />
       <env name="POSTGRES_PASSWORD" value="Patrick8" />
+      <env name="INSPECT_FLAG" value="flag{}" />
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
