@@ -11,7 +11,7 @@ urlpatterns = [
         name='challenge-list'
     ),
     url(
-        regex=r'challenge/(?P<pk>[0-9])',
+        regex=r'challenge/(?P<pk>[0-9]{1,3})',
         view=views.ChallengeView.as_view(),
         name='challenge'
     ),
