@@ -71,3 +71,39 @@
 .pwn-color{
   color: #FF5722
 }
+
+.forensics-light-scheme{
+  background-color: #C4A8D3;
+  color: #2A023E;
+
+}
+
+.linux-light-scheme{
+  background-color: #B3E3B6;
+  color: #004905;
+}
+
+.algo-light-scheme{
+  background-color: #FFFFA3;
+  color: #5D5A00;
+}
+
+.web-light-scheme{
+  background-color: #B7F0F0;
+  color: #006D6D;
+}
+
+.rev-eng-light-scheme{
+  background-color: #FFBCBC;
+  color: #410000;
+}
+
+.pwn-light-scheme{
+  background-color: #FEAB61;
+  color: #452000;
+}
+
+.crypto-light-scheme{
+  background-color: #A1ACC8;
+  color: #03102F;
+}

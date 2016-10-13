@@ -88,6 +88,11 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
 
+    def get_context_data(self, **kwargs):
+        context = super(UserListView, self).get_context_data(**kwargs)
+        context['challenges'] = Challenge.objects.all()
+        return context
+
 class UserAdminCP(ListView):
     model = User
     template_name = 'users/user_admin_dashboard.html'

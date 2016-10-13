@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
-
+{% load app_filters %}
 <ul>
   {% for user in user_list %}
-    <li>{{ user.name }} {{ user.score.value }}</li>
+    <li>
+      {{ user.name }}
+    </li>
   {% empty %}
     <li>Lol we have no users...</li>
   {% endfor %}
