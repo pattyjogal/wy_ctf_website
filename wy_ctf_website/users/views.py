@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 from django.contrib.auth.decorators import user_passes_test
 from django.core.urlresolvers import reverse
+from django.db.models import Sum
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,6 +11,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from wy_ctf_website.training.models import Challenge
 from .models import User
 
+def score_iter(value):
+    total = 0
+    for score in value:
+        total += score.value
+    return total
 
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
@@ -88,6 +94,9 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
 
+    def get_queryset(self):
+        return User.objects.annotate(total_score=Sum('score__value')).order_by('total_score')
+
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
         context['challenges'] = Challenge.objects.all()
@@ -96,6 +105,7 @@ class UserListView(LoginRequiredMixin, ListView):
 class UserAdminCP(ListView):
     model = User
     template_name = 'users/user_admin_dashboard.html'
+
 
     @user_passes_test(lambda u: u.is_superuser)
     def dispatch(self, request, *args, **kwargs):
