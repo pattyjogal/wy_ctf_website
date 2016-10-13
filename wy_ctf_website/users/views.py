@@ -4,6 +4,7 @@ from __future__ import absolute_import, unicode_literals
 from django.contrib.auth.decorators import user_passes_test
 from django.core.urlresolvers import reverse
 from django.db.models import Sum
+from django.db.models.functions import Coalesce
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -95,7 +96,7 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_url_kwarg = 'username'
 
     def get_queryset(self):
-        return User.objects.annotate(total_score=Sum('score__value')).order_by('total_score')
+        return User.objects.annotate(total_score=Coalesce(Sum('score__value'), 0)).order_by('-total_score')
 
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
