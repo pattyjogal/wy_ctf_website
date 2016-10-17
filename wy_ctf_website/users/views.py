@@ -96,7 +96,7 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_url_kwarg = 'username'
 
     def get_queryset(self):
-        return User.objects.annotate(total_score=Coalesce(Sum('score__value'), 0)).order_by('-total_score')
+        return User.objects.annotate(total_score=Coalesce(Sum('completed_challenges__points'), 0)).order_by('-total_score')
 
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
