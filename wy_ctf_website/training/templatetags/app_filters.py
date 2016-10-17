@@ -1,11 +1,12 @@
 from django.template import Library
 
 register = Library()
-@register.filter(name='score_iter')
-def score_iter(value):
+@register.filter(name='score_total')
+def score_total(user):
     total = 0
-    for score in value:
-        total += score.value
+    challenges = user.completed_challenges.all()
+    for challenge in challenges:
+        total += challenge.points
     return total
 
 @register.filter

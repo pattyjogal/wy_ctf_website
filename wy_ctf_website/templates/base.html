@@ -74,7 +74,7 @@
             <ul class="nav navbar-nav pull-xs-right">
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                  <strong  style="color: white;" class="nav-link">{{ request.user.score.all|score_iter }} points</strong>
+                  <strong  style="color: white;" class="nav-link">{{ request.user|score_total }} points</strong>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
