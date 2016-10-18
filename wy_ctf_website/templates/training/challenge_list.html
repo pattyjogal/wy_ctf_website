@@ -12,6 +12,9 @@
             {% if challenge.lesson %}
               <span class="tag tag-info">Lesson</span>
             {% endif %}
+            {% if challenge.will %}
+              <span class="tag tag-warning">Will</span>
+            {% endif %}
           {{ challenge.name }}
         <strong style="float:right">{{ challenge.solves }} solves</strong>
         </li>
