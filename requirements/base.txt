@@ -49,3 +49,5 @@ django-storages
 pyyaml
 
 paramiko
+
+discord.py

@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib import admin
 from django import forms
-
+import requests
 
 
 # Create your models here.
+from config.settings.common import env
+
 
 class Solution(models.Model):
     hash = models.CharField(max_length=32)
@@ -54,7 +56,24 @@ class Challenge(models.Model):
     def __str__(self):
         return (str(self.name))
 
+def post_save_challenge(sender, instance, created, *args, **kwargs):
+    if created:
+        from requests.auth import HTTPBasicAuth
+        r = requests.post(
+            url='https://discordapp.com/api/channels/227554629741707274/messages',
+            headers={
+                'Authorization': 'Bot ' + env('DISCORD_TOKEN'),
+                'User-Agent': 'ctf-bot (http://ctf.tips.club, v0.1)'
+            },
+            data={
+                'content': "<@&228329733434114048> **New Problem:** {name}\nPoints: {points}\nCategory: {cat}"\
+                .format(name=instance.name, points=instance.points, cat=instance.category)
+            }
+        )
+        print(r.text)
+        print(env('DISCORD_TOKEN'))
 
+models.signals.post_save.connect(post_save_challenge, sender=Challenge)
 
 class ChallengeAdmin(admin.ModelAdmin):
 
