@@ -1,7 +1,7 @@
 WY CTF Website
 ==============================
 
-A short description of the project.
+The training website for Whitney Young Magnet HS's CTF team! Made with Django and cookiecutter-django.
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
@@ -9,6 +9,13 @@ A short description of the project.
 
 
 LICENSE: MIT
+
+Adding Problems
+---------------
+
+If you're an admin and logged in, you'll see an admin button on the top banner. From there, all you have to do is navigate to the 'Challenge' section and click 'Add Challenge'. Fill out the form with your problem info (HTML works in the description!) And that's it!
+
+NOTE: There are still some issues with file uploads to our S3 bucket. Bear with us as we change it, but for now please submit your attatched files to Patrick.
 
 
 Settings
