@@ -48,16 +48,20 @@
   align-items:center
 }
 
+.crypto-color{
+  color: #0275d8;
+}
+
 .forensics-color{
   color: #5E35B1;
 }
 
 .linux-color{
-  color: #2E7D32
+  color: #2E7D32;
 }
 
 .algo-color{
-  color: #FFEB3B
+  color: #FFEB3B;
 }
 
 .web-color{
@@ -65,11 +69,40 @@
 }
 
 .rev-eng-color{
-  color: #c62828
+  color: #c62828;
 }
 
 .pwn-color{
-  color: #FF5722
+  color: #FF5722;
+}
+
+/*Background version*/
+.crypto-bg{
+  background-color: #0275d8;
+}
+
+.forensics-bg{
+  background-color: #5E35B1;
+}
+
+.linux-bg{
+  background-color: #2E7D32;
+}
+
+.algo-bg{
+  background-color: #FFEB3B;
+}
+
+.web-bg{
+  background-color: #4DD0E1;
+}
+
+.rev-eng-bg{
+  background-color: #c62828;
+}
+
+.pwn-bg{
+  background-color: #FF5722;
 }
 
 .forensics-light-scheme{

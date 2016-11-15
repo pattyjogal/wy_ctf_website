@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load app_filters %}
+{% load static %}
 {% block content %}
     <style>
     li{
@@ -22,13 +23,13 @@
         <tr>
           <td>{{ tool.name }}</td>
           <td>{{ tool.author }}</td>
-          <td>{{ tool.category }}</td>
+          <td><strong class="tag tag-primary {{ tool.category|css_from_category }}">{{ tool.category }}</strong></td>
           <td>{% for platform in tool.platform.all %}
                 <i class="{{ platform.icon }}"></i>
             {% endfor %}
             </td>
-          <td>{{ tool.documentation }}</td>
-          <td>{{ tool.program }}</td>
+          <td><a href="{{ tool.documentation }}">Docs</a></td>
+          <td><a href="{{ tool.program }}">Download</a></td>
         </tr>
       {% empty %}
           <h1>No challenges for this category!</h1>

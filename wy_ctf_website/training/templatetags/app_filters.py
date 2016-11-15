@@ -21,3 +21,16 @@ def solved_problem_tag(user, challenge):
         return 'success'
     else:
         return 'danger'
+
+@register.filter(name='css_from_category')
+def css_from_cat(category):
+    colors = {
+        'FR' : 'forensics-bg',
+        'CR' : 'crypto-bg',
+        'AL' : 'algo-bg',
+        'LX' : 'linux-bg',
+        'PW' : 'pwn-bg',
+        'RE' : 'rev-eng-bg',
+        'WB' : 'web-bg'
+    }
+    return colors[category]
