@@ -10,5 +10,10 @@ urlpatterns = [
         view=views.ToolsList.as_view(),
         name='tools-list'
     ),
+    url(
+        regex=r'bw-fm',
+        view=views.Binwalk_Foremost.as_view(),
+        name='bw-fm'
+    )
 
 ]

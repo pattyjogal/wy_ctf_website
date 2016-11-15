@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+  <link rel="stylesheet" href="http://jmblog.github.io/color-themes-for-highlightjs/css/themes/tomorrow-night-bright.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    #term-status > * {
+      display: inline;
+    }
+  h1,h2,h3,h6,p{
+    margin-top: 20px;
+  }
+  </style>
+
+  <h1>Foremost and Binwalk</h1>
+  <p>Foremost and binwalk are two extremely useful tools for file carving.</p>
+  <div  id="term-status">
+    <p>Is this app on our terminal?<p>
+    <div class="tag tag-success">Yes</div>
+  </div>
+  <hr>
+  <h2>Installation</h2>
+
+  You will need Linux or Mac for this program.
+  <h3>Linux</h3>
+  <p>Dependent on your version of Linux, your install may be different. Here are some common ones:</p>
+
+  <h6>Ubuntu</h6>
+  <pre><code class="sh">sudo apt-get install foremost</code></pre>
+  <pre><code class="bash">
+    wget https://github.com/devttys0/binwalk/archive/master.zip
+    unzip master.zip
+    (cd binwalk-master && sudo python setup.py uninstall && sudo python setup.py install)
+    sudo ./deps.sh
+  </code> </pre>
+
+  <h6>Antergos/Arch</h6>
+  <pre><code class="sh">sudo pacman -Syu foremost</code></pre>
+  <pre><code class="bash">
+    wget https://github.com/devttys0/binwalk/archive/master.zip
+    unzip master.zip
+    (cd binwalk-master && sudo python setup.py uninstall && sudo python setup.py install)
+  </code> </pre>
+
+  <h3>Mac</h3>
+  <pre><code class="sh">brew install foremost && brew install binwalk</code> </pre>
+
+  <hr>
+  <h2>Usage</h2>
+  <p>How do you release the inner awesomeness in foremost/binwalk? They come in handy when you are doing forensics
+  problems, for sure. They are useful for identifying files within other files and extracting them. If you
+  want to learn all of the functionality of these two programs, check the documentation links.</p>
+
+  <p>Here is a sample usage of foremost:</p>
+
+  <img src="https://s3-us-west-2.amazonaws.com/wy-ctf/foremost.PNG">
+
+  <p>To use foremost correctly, simple type <code>foremost</code> followed by the filename you wish to carve.</p>
+  <p>Once it's done finding files, a folder called <code>output</code> is generated. In there, there will be sub-directories
+  for each type of file it found (e.g. jpegs go in the jpg folder). Look in there for any hints towards solving the problem.</p>
+
+
+
+
+{% endblock %}
