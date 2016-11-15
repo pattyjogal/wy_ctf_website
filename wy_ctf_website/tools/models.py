@@ -43,8 +43,8 @@ class Tool(models.Model):
     description = models.CharField(max_length=999)
     author = models.CharField(max_length=255)
     platform = models.ManyToManyField(Platform)
-    program = models.CharField()
-    documentation = models.CharField()
+    program = models.CharField(max_length=999)
+    documentation = models.CharField(max_length=999)
 
 class ToolAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
