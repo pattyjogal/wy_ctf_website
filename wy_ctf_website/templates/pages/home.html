@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <style>
@@ -16,6 +17,20 @@
       to look up to. We want to keep this team well trained, of course, so we created a tool that will help you get
       the practice you need all while keeping track of your progress!</p>
       <strong>ATTENTION: FROM THIS POINT ON, FLAGS HAVE THE FORMAT <code>flag{}</code></strong>
+    </div>
+
+    <h1>CTF News</h1>
+  <br><br><br>
+    <h2>Coming soon: Ranks</h2>
+    <div style="width: 100%; display: table;">
+      <div style="display: table-row">
+        <div style="display: table-cell">
+        <img style="width: 300px;" src="{% static 'images/rank_promo@3x.png' %}">
+          </div>
+        <div style="display: table-cell">I am a big fan of our leaderboard. It lets me have a good overview of individual completion, but at a
+        glance, this isn't as easy to notice for you, the user. So these new ranks will represent a percentile of completion,
+        and they kinda look cool too ;)</div>
+        </div>
     </div>
 
     {% if user.is_authenticated %}
