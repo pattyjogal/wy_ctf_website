@@ -15,7 +15,13 @@
     padding: 10px;
   }
 
+  h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+
   </style>
+
+  <h1>Welcome to Willchan 3.0</h1>
 
   <form id="comment" method="post" action="{% url 'willchan:home' 1 %}">
   {% csrf_token %}
