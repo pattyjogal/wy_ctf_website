@@ -32,6 +32,7 @@ class ChallengeListView(ListView):
         return Challenge.objects.filter(category=self.kwargs['category'])
 
 
+
 class ChallengeView(DetailView):
     model = Challenge
     template_name = 'training/challenge_detail.html'

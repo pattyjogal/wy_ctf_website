@@ -22,6 +22,7 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     url(r'^training/', include('wy_ctf_website.training.urls', namespace='training')),
     url(r'^tools/', include('wy_ctf_website.tools.urls', namespace='tools')),
+    url(r'^willchan/', include('wy_ctf_website.willchan.urls', namespace='willchan')),
 
     url(r'^docmo/', TemplateView.as_view(template_name='training/docmo.html'), name='docmo'),
 

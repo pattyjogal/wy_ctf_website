@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <style scoped>
+
+  body {
+    background: #ff9999;
+  }
+
+  #posts > li {
+    background: #ffe5e5;
+    margin: 5px;
+    list-style-type: none;
+    padding: 10px;
+  }
+
+  </style>
+
+  <form id="comment" method="post" action="{% url 'willchan:home' 1 %}">
+  {% csrf_token %}
+    <label for="name">Name</label>
+    <input name="name" type="text" >
+    <br>
+    <label for="picture">Image URL</label>
+    <input name="picture" type="text"><br>
+    <label for="body">Your post</label>
+    <textarea name="body" form="comment"></textarea><br>
+    <input type="submit">
+  </form>
+
+  <ul id="posts">
+    {% for comment in object_list %}
+      <li>
+      {% if comment.picture %}
+        <img style="max-width: 200px; max-height: 200px" src="{{ comment.picture }}"> <br>
+      {% endif %}
+        <strong>{{ comment.name }}:</strong> {{ comment.body }}
+      </li>
+      <hr>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}
