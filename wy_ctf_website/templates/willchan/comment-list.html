@@ -1,30 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+  <div>
+    {% ifnotequal page "1" %}
+      <a style="float:left" href="/willchan/{{ page|add:"-1" }}">&laquo;Previous</a>
+    {% endifnotequal %}
+    <a style="float:right" href="/willchan/{{ page|add:"1" }}">Next&raquo;</a>
+  </div>
+  <br>
   <style scoped>
 
-  body {
-    background: #ff9999;
-  }
+    body {
+      background: #ff9999;
+    }
 
-  #posts > li {
-    background: #ffe5e5;
-    margin: 5px;
-    list-style-type: none;
-    padding: 10px;
-  }
+    #posts > li {
+      background: #ffe5e5;
+      margin: 5px;
+      list-style-type: none;
+      padding: 10px;
+    }
 
-  h1 {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-  }
+    h1 {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
 
   </style>
 
   <h1>Welcome to Willchan 3.0</h1>
 
   <form id="comment" method="post" action="{% url 'willchan:home' 1 %}">
-  {% csrf_token %}
+    {% csrf_token %}
     <label for="name">Name</label>
     <input name="name" type="text" >
     <br>
@@ -38,14 +44,20 @@
   <ul id="posts">
     {% for comment in object_list %}
       <li>
-      {% if comment.picture %}
-        <img style="max-width: 200px; max-height: 200px" src="{{ comment.picture }}"> <br>
-      {% endif %}
+        {% if comment.picture %}
+          <img style="max-width: 200px; max-height: 200px" src="{{ comment.picture }}"> <br>
+        {% endif %}
         <strong>{{ comment.name }}:</strong> {{ comment.body }}
       </li>
       <hr>
     {% endfor %}
   </ul>
-
+  <br>
+  <div>
+    {% ifnotequal page "1" %}
+      <a style="float:left" href="/willchan/{{ page|add:"-1" }}">&laquo;Previous</a>
+    {% endifnotequal %}
+    <a style="float:right" href="/willchan/{{ page|add:"1" }}">Next&raquo;</a>
+  </div>
 
 {% endblock %}

@@ -11,6 +11,13 @@ class WillchanHome(ListView):
     model = Comment
     template_name = 'willchan/comment-list.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(WillchanHome, self).get_context_data()
+        print(self.kwargs)
+        context['page'] = self.kwargs['page']
+        return context
+
+
     def get_queryset(self):
         qs = Comment.objects.all()
         i = int(self.kwargs['page'])
