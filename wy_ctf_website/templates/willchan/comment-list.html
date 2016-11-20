@@ -7,8 +7,12 @@
     {% endifnotequal %}
     <a style="float:right" href="/willchan/{{ page|add:"1" }}">Next&raquo;</a>
   </div>
-  <br>
+
   <style scoped>
+
+    div > a{
+      font-size: 2em;
+    }
 
     body {
       background: #ff9999;
@@ -27,7 +31,7 @@
 
   </style>
 
-  <h1>Welcome to Willchan 3.0</h1>
+  <h1 style="text-align: center">Welcome to Willchan 3.0</h1>
 
   <form id="comment" method="post" action="{% url 'willchan:home' 1 %}">
     {% csrf_token %}
