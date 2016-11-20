@@ -42,6 +42,10 @@
     <input name="picture" type="text"><br>
     <label for="body">Your post</label>
     <textarea name="body" form="comment"></textarea><br>
+    {% if user.is_staff %}
+      <label for="admin">Adminerino?</label>
+      <input name="admin" type="checkbox"><br>
+    {% endif %}
     <input type="submit">
   </form>
 
@@ -51,7 +55,7 @@
         {% if comment.picture %}
           <img style="max-width: 200px; max-height: 200px" src="{{ comment.picture }}"> <br>
         {% endif %}
-        <strong>{{ comment.name }}:</strong> {{ comment.body }}
+        <strong style="{% if comment.admin %}color:mediumpurple{% endif %}">{{ comment.name }}:</strong> {{ comment.body }}
       </li>
       <hr>
     {% endfor %}

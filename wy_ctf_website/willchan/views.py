@@ -15,6 +15,7 @@ class WillchanHome(ListView):
         context = super(WillchanHome, self).get_context_data()
         print(self.kwargs)
         context['page'] = self.kwargs['page']
+        context['user'] = self.request.user
         return context
 
 
@@ -29,6 +30,7 @@ class WillchanHome(ListView):
         name = request.POST['name']
         body = request.POST['body']
         picture = request.POST['picture']
+        admin = request.POST['admin']
 
         if name:
             comment.name = name
@@ -36,7 +38,7 @@ class WillchanHome(ListView):
 
         if picture:
             comment.picture = picture
-
+        comment.admin = admin
         comment.save()
 
         return HttpResponseRedirect("/willchan/1")
