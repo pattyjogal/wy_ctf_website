@@ -30,7 +30,7 @@ class WillchanHome(ListView):
         name = request.POST['name']
         body = request.POST['body']
         picture = request.POST['picture']
-        admin = request.POST['admin']
+        admin = request.POST.get('admin', False)
 
         if name:
             comment.name = name

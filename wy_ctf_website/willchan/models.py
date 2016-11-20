@@ -6,4 +6,4 @@ class Comment(models.Model):
     name = models.CharField(max_length=40, blank=True, null=True)
     body = models.CharField(max_length=512)
     picture = models.CharField(max_length=100, blank=True, null=True)
-    admin = models.BooleanField(default=False)
+    admin = models.BooleanField(default=False, blank=True)
