@@ -43,13 +43,13 @@ def rank_icon(user):
     rank_assoc = 0
     if rank_quotient >= .85:
         rank_assoc = 5
-    elif .85 > rank_quotient >= .75:
+    elif .83 > rank_quotient >= .75:
         rank_assoc = 4
     elif .75 > rank_quotient >= .60:
         rank_assoc = 3
     elif .60 > rank_quotient >= .40:
         rank_assoc = 2
-    elif .40 > rank_quotient:
+    elif .40 > rank_quotient >= .20:
         rank_assoc = 1
     user.rank = rank_assoc
     user.save()
@@ -71,6 +71,8 @@ def rank_icon(user):
     elif num == 5:
         color = "#b9f2ff"
         icon = "fa fa-diamond"
+    else:
+        pass
     return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
 
 
