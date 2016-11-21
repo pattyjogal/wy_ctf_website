@@ -37,8 +37,8 @@ def css_from_cat(category):
     }
     return colors[category]
 
-@register.filter(name='rank_icon')
-def rank_icon(user):
+@register.filter(name='rank_bg')
+def rank_bg(user):
     rank_quotient = score_total(user) / total_points()
     rank_assoc = 0
     if rank_quotient >= .85:
@@ -54,26 +54,29 @@ def rank_icon(user):
     user.rank = rank_assoc
     user.save()
     num = rank_assoc
-    color = ""
-    icon = ""
+    src = None
     if num == 1:
-        color = "#A57164"
-        icon = "fa fa-circle-o-notch"
+        # color = "#A57164"
+        # icon = "fa fa-circle-o-notch"
+        src = 'bronze-bg.jpg'
     elif num == 2:
-        color = "#BFC1C2"
-        icon = "fa fa-circle-o"
+        # color = "#BFC1C2"
+        # icon = "fa fa-circle-o"
+        src = 'silver-bg.jpg'
     elif num == 3:
-        color = "#D4AF37"
-        icon = "fa fa-circle"
+        # color = "#D4AF37"
+        # icon = "fa fa-circle"
+        src = 'gold-bg.jpg'
     elif num == 4:
-        color = "#841B2D"
-        icon = "fa fa-plus-circle"
+        # color = "#841B2D"
+        # icon = "fa fa-plus-circle"
+        src = 'ruby-bg.png'
     elif num == 5:
-        color = "#b9f2ff"
-        icon = "fa fa-diamond"
-    else:
-        pass
-    return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
+        # color = "#b9f2ff"
+        # icon = "fa fa-diamond"
+        src = 'diamond_bg.jpg'
+
+    return src
 
 
 def total_points():

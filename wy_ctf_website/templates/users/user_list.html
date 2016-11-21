@@ -13,13 +13,31 @@
   <div class="container">
 
     <h2>Users</h2>
+    <style>
+      .list-group-item{
+        background-image: linear-gradient(
+    to right,
+    rgba(255,255,255, 255),
+    rgba(255,255,255, 0)), url("{% static user|rank_bg %}");
+        background-size: 100%;
 
+      }
+      .list-group-item {
+        -webkit-mask-image: none;
+      }
+    </style>
     <div class="list-group">
       {% for user in user_list %}
-        <a href="#problems-expansion-{{ user.username }}" data-toggle="collapse" class="list-group-item">
-        {{ user|rank_icon|safe }}
+        <a href="#problems-expansion-{{ user.username }}" data-toggle="collapse" class="list-group-item" style="color: black">
           <span class="list-group-item-heading" >{{ user.username }}</span>
-          <span class="list-group-item-heading pull-right">{{ user|score_total }}</span>
+          <span class="list-group-item-heading pull-right" style="
+          {% if user|rank_bg %}
+            color: white;
+          {% else %}
+            color: black;
+          {% endif %}">
+            {{ user|score_total }}
+            </span>
 
         </a>
 {#        <div class="collapse" id="problems-expansion-{{ user.username }}">#}
