@@ -76,7 +76,7 @@ def rank_bg(user):
         # icon = "fa fa-diamond"
         src = 'diamond_bg.jpg'
 
-    return src
+    return 'images/' + src
 
 
 def total_points():
