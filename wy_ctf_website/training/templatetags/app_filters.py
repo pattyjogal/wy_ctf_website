@@ -54,7 +54,7 @@ def rank_bg(user):
     user.rank = rank_assoc
     user.save()
     num = rank_assoc
-    src = None
+    src = ""
     if num == 1:
         # color = "#A57164"
         # icon = "fa fa-circle-o-notch"
@@ -77,6 +77,13 @@ def rank_bg(user):
         src = 'diamond_bg.jpg'
 
     return 'images/' + src
+
+@register.filter(name='rank_score_color')
+def rsc(user):
+    if user.rank == 0:
+        return 'black'
+    else:
+        return 'white'
 
 
 def total_points():
