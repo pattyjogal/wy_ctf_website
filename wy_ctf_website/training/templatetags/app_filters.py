@@ -43,7 +43,7 @@ def rank_bg(user):
     rank_assoc = 0
     if rank_quotient >= .85:
         rank_assoc = 5
-    elif .83 > rank_quotient >= .75:
+    elif .85 > rank_quotient >= .75:
         rank_assoc = 4
     elif .75 > rank_quotient >= .60:
         rank_assoc = 3
