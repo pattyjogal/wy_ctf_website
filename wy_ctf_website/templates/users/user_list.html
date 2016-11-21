@@ -16,20 +16,13 @@
 
     <div class="list-group">
       {% for user in user_list %}
-            <style>
-              .list-group-item{
-                background-image: linear-gradient(
+        <a href="#problems-expansion-{{ user.username }}" data-toggle="collapse" class="list-group-item" style="
+        background-image: linear-gradient(
             to right,
             rgba(255,255,255, 255),
             rgba(255,255,255, 0)), url("{% static user|rank_bg %}");
                 background-size: 100%;
-
-              }
-              .list-group-item {
-                -webkit-mask-image: none;
-              }
-            </style>
-        <a href="#problems-expansion-{{ user.username }}" data-toggle="collapse" class="list-group-item" style="color: black">
+        ">
           <span class="list-group-item-heading" >{{ user.username }}</span>
           <span class="list-group-item-heading pull-right" style="color: {{ user|rank_score_color }}">
             {{ user|score_total }}
