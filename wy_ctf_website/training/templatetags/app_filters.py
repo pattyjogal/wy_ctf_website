@@ -1,5 +1,7 @@
 from django.template import Library
 
+from wy_ctf_website.training.models import Challenge
+
 register = Library()
 @register.filter(name='score_total')
 def score_total(user):
@@ -72,7 +74,7 @@ def rank_icon(user):
     return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
 
 
-def total_points(self):
+def total_points():
     points_total = 0
     for challenge in Challenge.objects.all():
         points_total += challenge.points
