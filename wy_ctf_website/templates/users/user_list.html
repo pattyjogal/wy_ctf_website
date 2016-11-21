@@ -22,67 +22,67 @@
           <span class="list-group-item-heading pull-right">{{ user|score_total }}</span>
 
         </a>
-        <div class="collapse" id="problems-expansion-{{ user.username }}">
-
-          <div class="list-group-item forensics-light-scheme">
-            Forensics
-          </div>
-          <div id="#problems-expansion-{{ user.username }}-FR">
-            {% for challenge in challenges|in_category:'FR' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item crypto-light-scheme">Crypto</div>
-          <div id="#problems-expansion-{{ user.username }}-CR">
-            {% for challenge in challenges|in_category:'CR' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item linux-light-scheme">Linux score</div>
-          <div id="#problems-expansion-{{ user.username }}-LX">
-            {% for challenge in challenges|in_category:'LX' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item algo-light-scheme">Algo score</div>
-          <div id="#problems-expansion-{{ user.username }}-AL">
-            {% for challenge in challenges|in_category:'AL' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item web-light-scheme">Web score</div>
-          <div id="#problems-expansion-{{ user.username }}-WB">
-            {% for challenge in challenges|in_category:'WB' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item rev-eng-light-scheme">RE score</div>
-          <div id="#problems-expansion-{{ user.username }}-RE">
-            {% for challenge in challenges|in_category:'RE' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-          <div class="list-group-item pwn-light-scheme">PWN score</div>
-          <div id="#problems-expansion-{{ user.username }}-PW">
-            {% for challenge in challenges|in_category:'PW' %}
-              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">
-                {{ challenge.name }}
-              </div>
-            {% endfor %}
-          </div>
-        </div>
+{#        <div class="collapse" id="problems-expansion-{{ user.username }}">#}
+{##}
+{#          <div class="list-group-item forensics-light-scheme">#}
+{#            Forensics#}
+{#          </div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-FR">#}
+{#            {% for challenge in challenges|in_category:'FR' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item crypto-light-scheme">Crypto</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-CR">#}
+{#            {% for challenge in challenges|in_category:'CR' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item linux-light-scheme">Linux score</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-LX">#}
+{#            {% for challenge in challenges|in_category:'LX' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item algo-light-scheme">Algo score</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-AL">#}
+{#            {% for challenge in challenges|in_category:'AL' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item web-light-scheme">Web score</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-WB">#}
+{#            {% for challenge in challenges|in_category:'WB' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item rev-eng-light-scheme">RE score</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-RE">#}
+{#            {% for challenge in challenges|in_category:'RE' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#          <div class="list-group-item pwn-light-scheme">PWN score</div>#}
+{#          <div id="#problems-expansion-{{ user.username }}-PW">#}
+{#            {% for challenge in challenges|in_category:'PW' %}#}
+{#              <div class="list-group-item list-group-item-{{ user|solved_problem_tag:challenge }}">#}
+{#                {{ challenge.name }}#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#        </div>#}
 
       {% endfor %}
 
