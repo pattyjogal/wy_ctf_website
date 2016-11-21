@@ -36,7 +36,22 @@ def css_from_cat(category):
     return colors[category]
 
 @register.filter(name='rank_icon')
-def rank_icon(num):
+def rank_icon(user):
+    rank_quotient = score_total(user) / total_points()
+    rank_assoc = 0
+    if rank_quotient >= .85:
+        rank_assoc = 5
+    elif .85 > rank_quotient >= .75:
+        rank_assoc = 4
+    elif .75 > rank_quotient >= .60:
+        rank_assoc = 3
+    elif .60 > rank_quotient >= .40:
+        rank_assoc = 2
+    elif .40 > rank_quotient:
+        rank_assoc = 1
+    user.rank = rank_assoc
+    user.save()
+    num = rank_assoc
     color = ""
     icon = ""
     if num == 1:
@@ -55,3 +70,10 @@ def rank_icon(num):
         color = "#b9f2ff"
         icon = "fa fa-diamond"
     return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
+
+
+def total_points(self):
+    points_total = 0
+    for challenge in Challenge.objects.all():
+        points_total += challenge.points
+    return points_total
