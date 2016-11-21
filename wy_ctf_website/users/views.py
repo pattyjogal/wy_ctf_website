@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from wy_ctf_website.training.models import Challenge
 from .models import User
+from wy_ctf_website.training.templatetags.app_filters import score_total
 
 def score_iter(value):
     total = 0
@@ -95,10 +96,34 @@ class UserListView(LoginRequiredMixin, ListView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
 
+    def total_points(self):
+        points_total = 0
+        for challenge in Challenge.objects.all():
+            points_total += challenge.points
+        return points_total
+
+    def get(self, request, *args, **kwargs):
+        rank_quotient = score_total(request.user) / self.total_points()
+        rank_assoc = 0
+        if rank_quotient >= .85:
+            rank_assoc = 5
+        elif .85 > rank_quotient >= .75:
+            rank_assoc = 4
+        elif .75 > rank_quotient >= .60:
+            rank_assoc = 3
+        elif .60 > rank_quotient >= .40:
+            rank_assoc = 2
+        elif .40 > rank_quotient:
+            rank_assoc = 1
+        request.user.rank = rank_assoc
+        request.user.save()
+        return super(UserListView, self).get(request, *args, **kwargs)
+
     def get_queryset(self):
         return User.objects.annotate(total_score=Coalesce(Sum('completed_challenges__points'), 0)).order_by('-total_score')
 
     def get_context_data(self, **kwargs):
+
         context = super(UserListView, self).get_context_data(**kwargs)
         context['challenges'] = Challenge.objects.all()
         return context

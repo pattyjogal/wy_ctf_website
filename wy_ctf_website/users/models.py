@@ -23,6 +23,8 @@ class User(AbstractUser):
 
     terminal_password = models.CharField(max_length=100, blank=True)
 
+    rank = models.IntegerField(default=1)
+
 
     def __str__(self):
         return self.username

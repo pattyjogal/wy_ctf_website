@@ -19,6 +19,8 @@ from config.settings import common
 from config.settings.common import env
 from wy_ctf_website.training.forms import TerminalRegistrationForm
 from wy_ctf_website.training.models import Challenge, Score
+from wy_ctf_website.training.templatetags import app_filters
+
 
 import hashlib
 
@@ -37,6 +39,8 @@ class ChallengeView(DetailView):
     model = Challenge
     template_name = 'training/challenge_detail.html'
 
+
+
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         # Let's reward the user if they got it right!
@@ -52,6 +56,7 @@ class ChallengeView(DetailView):
             con = self.get_context_data(object=self.get_object())
             self.object.solves += 1
             self.object.save()
+
             # Send me a text!
             message = request.user.username \
                       + " just solved " \

@@ -34,3 +34,24 @@ def css_from_cat(category):
         'WB' : 'web-bg'
     }
     return colors[category]
+
+@register.filter(name='rank_icon')
+def rank_icon(num):
+    color = ""
+    icon = ""
+    if num is 1:
+        color = "#A57164"
+        icon = "fa fa-circle-o-notch"
+    if num is 2:
+        color = "#BFC1C2"
+        icon = "fa fa-circle-o"
+    if num is 3:
+        color = "#D4AF37"
+        icon = "fa fa-circle"
+    if num is 4:
+        color = "#841B2D"
+        icon = "fa fa-plus-circle"
+    if num is 5:
+        color = "#b9f2ff"
+        icon = "fa fa-diamond"
+    return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
