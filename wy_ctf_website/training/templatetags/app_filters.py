@@ -42,16 +42,16 @@ def rank_icon(num):
     if num == 1:
         color = "#A57164"
         icon = "fa fa-circle-o-notch"
-    if num == 2:
+    elif num == 2:
         color = "#BFC1C2"
         icon = "fa fa-circle-o"
-    if num == 3:
+    elif num == 3:
         color = "#D4AF37"
         icon = "fa fa-circle"
-    if num == 4:
+    elif num == 4:
         color = "#841B2D"
         icon = "fa fa-plus-circle"
-    if num == 5:
+    elif num == 5:
         color = "#b9f2ff"
         icon = "fa fa-diamond"
     return '<i class="{}" aria-hidden="true" style="color: {}"></i>'.format(icon, color)
