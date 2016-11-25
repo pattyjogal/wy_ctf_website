@@ -8,7 +8,7 @@
     </style>
     <ul class="list-group">
     {% for challenge in object_list %}
-        <li class="list-group-item" onclick="location.href='{% url 'training:challenge' challenge.pk %}';">
+        <li class="list-group-item {% if challenge in user.completed_challenges %}active{% endif %}" onclick="location.href='{% url 'training:challenge' challenge.pk %}';">
             {% if challenge.lesson %}
               <span class="tag tag-info">Lesson</span>
             {% endif %}
