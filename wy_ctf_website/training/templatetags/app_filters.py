@@ -91,3 +91,10 @@ def total_points():
     for challenge in Challenge.objects.all():
         points_total += challenge.points
     return points_total
+
+@register.filter(name='solved')
+def solved(user, challenge):
+    if challenge in user.completed_challenges.all():
+        return 'active'
+    else:
+        return ''
