@@ -52,6 +52,7 @@ class Challenge(models.Model):
     solves = models.IntegerField(default=0)
     lesson = models.BooleanField(default=False)
     will = models.BooleanField(default=False)
+    prereq = models.ManyToManyField('self', blank=True)
 
     def __str__(self):
         return (str(self.name))

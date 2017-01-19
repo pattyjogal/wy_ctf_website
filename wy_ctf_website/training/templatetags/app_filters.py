@@ -1,3 +1,4 @@
+from django.shortcuts import render, render_to_response
 from django.template import Library
 
 from wy_ctf_website.training.models import Challenge
@@ -98,3 +99,27 @@ def solved(user, challenge):
         return 'active'
     else:
         return ''
+
+@register.filter(name='prereq_desc')
+def prqdsc(challenge, request):
+
+    needed_to_complete = []
+    for i in challenge.prereq.all():
+        if i not in request.user.completed_challenges.all():
+            needed_to_complete.append((i, True))
+        else:
+            needed_to_complete.append((i, False))
+    if needed_to_complete:
+        print(needed_to_complete)
+        return render(request, 'training/forbidden_description.html',
+                      {'needed_challenges': needed_to_complete}).content
+
+
+    return challenge.description
+
+@register.filter(name='bool_to_status')
+def bts(x):
+    if x == "True":
+        return 'success'
+    else:
+        return 'danger'

@@ -1,0 +1,18 @@
+{% load app_filters %}
+
+<div style="margin: 0 auto">
+  <h1>Sorry...</h1>
+  <p>You can't see this problem yet, since there are prerequisite problems you have not yet finished.</p>
+  <h3>Prerequisites:</h3>
+  <div style="display: inline;">
+    {% for challenge,status in needed_challenges %}
+      <div class="card card-inverse card-{{ status|bool_to_status }} mb-3 text-center" style="max-width: 200px">
+        <div class="card-block text-center">
+          <h3 style="" class="card-title">
+            {{ challenge }}
+          </h3>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
