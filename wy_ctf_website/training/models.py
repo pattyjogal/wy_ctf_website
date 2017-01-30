@@ -29,6 +29,7 @@ class Challenge(models.Model):
     WEB = 'WB'
     REVERSE_ENGINEERING = 'RE'
     PWNING = 'PW'
+    PROCOM = 'PC'
 
     CHALLENGE_CATEGORIES = (
         (FORENSICS, "Forensics"),
@@ -38,6 +39,7 @@ class Challenge(models.Model):
         (WEB, "Web"),
         (REVERSE_ENGINEERING, "Reverse Engineering"),
         (PWNING, "Pwning"),
+        (PROCOM, "ProCom")
     )
 
     name = models.CharField(max_length=100)

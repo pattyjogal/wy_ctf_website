@@ -19,6 +19,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="4d77f0565a" level="application" />
     <orderEntry type="library" name="highlight" level="application" />
+    <orderEntry type="library" name="api" level="application" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="$MODULE_DIR$/requirements/local.txt" />

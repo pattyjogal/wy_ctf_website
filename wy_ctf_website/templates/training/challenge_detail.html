@@ -19,8 +19,11 @@
     </div>
     <div class="card-block">
       <div class="card-text">
+        {% if object.category == "PC" %}
+<iframe frameborder="0" width="100%" height="600px" src="{{ object.description }}"></iframe>
+        {% else %}
         {{ object|prereq_desc:request|safe}}
-      <br>
+        <br>
         {% if object.attachments %}
           <a href="{{ object.attachments.url }}" class="btn btn-info">Download attachment</a>
         {% endif %}
@@ -30,6 +33,7 @@
         <input type="text" class="form-control form-control-lg" name="answer" placeholder="Your answer">
         <input type="submit" class="btn btn-primary">
       </form>
+    {% endif %}
     </div>
   </div>
 
